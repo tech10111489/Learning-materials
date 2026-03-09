@@ -52,7 +52,7 @@
                     </div>
                     <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
                         <div class="text-xl font-bold text-gray-800 mb-1">📁 체계적인 관리</div>
-                        <p class="text-gray-600 text-sm">회차별, 과목별(피부미용, 부동산 등)로 폴더를 나누어 영구적으로 보관하고 버전을 관리할 수 있습니다.</p>
+                        <p class="text-gray-600 text-sm">회차별, 과목별(피부미용, 부동산 등)로 폴더 나누어 영구적으로 보관하고 버전을 관리할 수 있습니다.</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
                         <div class="text-xl font-bold text-gray-800 mb-1">🔗 쉬운 접근성</div>
@@ -72,7 +72,7 @@
 
             <div class="w-full md:w-2/3 p-6 md:p-10 flex flex-col justify-between">
                 <div>
-                    <div class="mb-4 inline-block bg-green-100 text-green-800 px-3 py-1 rounded-md text-sm font-bold" id="step-badge">단계 1 / 4</div>
+                    <div class="mb-4 inline-block bg-green-100 text-green-800 px-3 py-1 rounded-md text-sm font-bold" id="step-badge">단계 1 / 5</div>
                     <h2 id="step-title" class="text-3xl font-bold text-gray-900 mb-6">새로운 저장소(공간) 생성 시작하기</h2>
                     
                     <div id="step-content" class="prose max-w-none text-gray-700 space-y-4 step-transition">
@@ -175,21 +175,31 @@
                     `
                 },
                 {
-                    title: "파일 업로드 메뉴 진입",
-                    description: "생성된 자료실에 실제 학습 자료(PDF, PPT, 한글 파일, 이미지 등)를 올리는 단계입니다.",
+                    title: "파일 업로드 메뉴 진입 (새 버전 UI 적용)",
+                    description: "새롭게 변경된 깃허브 화면에서 숨어있는 파일 업로드 버튼을 찾아 들어가는 단계입니다.",
                     content: `
-                        <p>공간 생성이 완료되면 나타나는 새로운 화면에서 아래 순서대로 진행합니다.</p>
+                        <p>최근 깃허브 디자인이 변경되어 버튼을 찾기 다소 까다로워졌습니다. 아래 순서대로 천천히 따라와 주십시오.</p>
                         <ol class="list-decimal pl-5 space-y-4 mt-4">
-                            <li>화면 중앙 우측에 있는 <strong>Add file</strong> 버튼을 클릭합니다.</li>
-                            <li>아래로 펼쳐지는 하위 메뉴에서 <strong>Upload files</strong>를 선택합니다.</li>
+                            <li>화면 중앙 우측을 보시면 초록색 <strong>&lt; &gt; Code</strong> 버튼이 있습니다.</li>
+                            <li>그 초록색 버튼 바로 왼쪽에 위치한 <strong><span class="text-xl font-bold">+</span> (더하기) 모양의 하얀색 버튼</strong>을 클릭합니다.</li>
+                            <li>아래로 작은 메뉴창이 펼쳐지면, 위쪽 화살표(↑) 모양이 그려진 <strong>Upload files</strong> 항목을 선택합니다.</li>
                         </ol>
                         <div class="my-6 p-6 bg-gray-50 rounded-lg flex flex-col items-center justify-center border border-gray-200 text-center">
-                            <div class="bg-gray-200 text-gray-700 px-4 py-2 rounded shadow-sm border border-gray-300 font-semibold mb-2 inline-flex items-center cursor-pointer">
-                                Add file <span class="ml-2 text-xs">▼</span>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <div class="bg-white text-gray-700 px-3 py-1.5 rounded shadow-sm border border-gray-300 font-bold cursor-pointer flex items-center">
+                                    + <span class="ml-1 text-xs">▼</span>
+                                </div>
+                                <div class="bg-[#1f883d] text-white px-3 py-1.5 rounded shadow-sm border border-[#1f883d] font-semibold flex items-center opacity-70">
+                                    &lt; &gt; Code <span class="ml-1 text-xs">▼</span>
+                                </div>
                             </div>
-                            <div class="bg-white border border-gray-300 rounded shadow-md w-40 text-left overflow-hidden">
-                                <div class="px-4 py-2 hover:bg-blue-50 text-sm text-gray-500 cursor-not-allowed">Create new file</div>
-                                <div class="px-4 py-2 bg-blue-50 text-blue-700 font-medium text-sm cursor-pointer border-l-2 border-blue-500">Upload files</div>
+                            <div class="bg-white border border-gray-300 rounded shadow-md w-48 text-left overflow-hidden mt-1 z-10 relative left-[-2rem]">
+                                <div class="px-4 py-2 hover:bg-gray-100 text-sm text-gray-600 cursor-not-allowed flex items-center border-b border-gray-100">
+                                    <span class="mr-2 text-gray-400 font-bold">+</span> Create new file
+                                </div>
+                                <div class="px-4 py-2 bg-blue-50 text-blue-800 font-bold text-sm cursor-pointer border-l-4 border-blue-500 flex items-center">
+                                    <span class="mr-2 font-bold">↑</span> Upload files
+                                </div>
                             </div>
                         </div>
                     `
@@ -209,9 +219,36 @@
                             <li>마우스를 놓으시면 파일이 목록에 올라가며 로딩(업로드)이 시작됩니다. 게이지가 모두 차오를 때까지 잠시 대기합니다.</li>
                             <li><strong>최종 저장:</strong> 파일 로딩이 모두 끝난 것을 확인하신 후, 화면 맨 밑으로 내려가서 초록색 <strong>Commit changes</strong> 버튼을 클릭합니다.</li>
                         </ol>
-                        <div class="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-                            <strong class="text-lg block mb-1">✅ 최종 보고 사항</strong>
-                            위 4단계를 완료하시면 학생들을 위한 학습 자료 업로드가 모두 마무리됩니다. 화면 상단의 인터넷 주소창에 있는 URL(링크)을 복사하여 학생들의 단체 채팅방이나 공지사항에 전달해 주시면, 학생들은 언제든 해당 링크로 접속하여 자료를 내려받을 수 있습니다.
+                        <div class="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700">
+                            <strong class="text-lg block mb-1">▶ 다음 단계 안내</strong>
+                            성공적으로 자료 업로드를 마치셨습니다. 학생들에게 배포할 수 있는 웹사이트 링크를 만들기 위해 다음 단계로 넘어가 주십시오.
+                        </div>
+                    `
+                },
+                {
+                    title: "학생 배포용 웹사이트 주소 생성 단계",
+                    description: "학생들이 인터넷 주소창에 입력하여 접속할 수 있는 최종 웹사이트 링크를 활성화하는 마지막 단계입니다.",
+                    content: `
+                        <ol class="list-decimal pl-5 space-y-4 mb-6">
+                            <li>현재 화면 상단 메뉴(Code, Issues, Pull requests... 등이 나열된 줄)의 가장 오른쪽 끝에 있는 <strong>[⚙️ Settings]</strong> 탭을 클릭해 주십시오.</li>
+                            <li>설정 화면으로 바뀌면, 왼쪽 세로 메뉴 목록을 아래로 조금 내려서 <strong>[Pages]</strong> 메뉴를 찾아 클릭합니다.</li>
+                            <li>화면 중간에 있는 'Build and deployment' 항목을 확인해 주십시오. Branch라는 글자 아래에 있는 <strong>None</strong> 버튼을 클릭하여 <strong>main</strong>으로 변경합니다.</li>
+                            <li>변경 후, 바로 옆에 나타나는 <strong>[Save]</strong> 버튼을 눌러 저장해 주십시오.</li>
+                            <li>설정을 저장한 뒤 웹페이지가 구축되는 데 <strong>약 1~2분 정도의 시간</strong>이 소요됩니다.</li>
+                        </ol>
+                        
+                        <div class="p-6 border-2 border-[#16a34a] bg-[#f0fdf4] rounded-xl shadow-sm">
+                            <h4 class="font-bold text-[#166534] text-xl mb-3 flex items-center">
+                                <span class="text-2xl mr-2">🌐</span> 최종 웹페이지 접속 주소 확인 방법
+                            </h4>
+                            <p class="text-[#15803d] mb-3 font-medium">약 1~2분이 지난 후, 키보드의 <strong>[F5] 키</strong>를 눌러 화면을 새로고침해 주십시오.</p>
+                            <p class="text-[#15803d] leading-relaxed">
+                                새로고침 후 화면 상단에 <strong class="text-green-900 bg-green-200 px-1 rounded">"Your site is live at..."</strong> 이라는 메시지와 함께 웹사이트 주소가 나타납니다.<br>
+                                <span class="text-sm text-gray-500 mt-1 block">(예시: https://사용자계정명.github.io/저장소이름/)</span>
+                            </p>
+                            <div class="mt-4 pt-4 border-t border-green-200">
+                                <p class="text-[#166534] font-bold">해당 주소를 복사하여 단체 채팅방 등에 학생들에게 배포하시면 모든 과정이 완료됩니다.</p>
+                            </div>
                         </div>
                     `
                 }
@@ -264,7 +301,7 @@
                 }
 
                 if (currentStepIndex === stepsData.length - 1) {
-                    nextBtn.innerHTML = '완료 &#10003;';
+                    nextBtn.innerHTML = '수고하셨습니다 &#10003;';
                     nextBtn.classList.replace('bg-[#16a34a]', 'bg-gray-800');
                     nextBtn.classList.replace('hover:bg-[#15803d]', 'hover:bg-gray-900');
                 } else {
@@ -282,7 +319,7 @@
                 if (currentStepIndex < stepsData.length - 1) {
                     updateStep(currentStepIndex + 1);
                 } else {
-                    alert('모든 단계를 완료했습니다. 브라우저 주소창의 링크를 학생들에게 공유해 주세요.');
+                    alert('모든 단계를 성공적으로 완료하셨습니다. 회장님, 고생 많으셨습니다. 학생들에게 주소를 배포해 주시면 됩니다.');
                 }
             });
 
